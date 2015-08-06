@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @title %></title>
+  </head>
+  <body>
+    <%= yield %>
+    <% if session[:user_id] %>
+	    <form action="/sessions/<%= session[:user_id] %>" method="post">
+	    	<input type="hidden" name="_method" value="delete">
+	    	<input type="submit" value="Sign Out">
+	    </form>
+    <% end %>
+  </body>
+</html>
